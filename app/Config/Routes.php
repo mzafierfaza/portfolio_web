@@ -31,8 +31,11 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-
+$routes->get('/', 'Portfolio::index');
+$routes->get('/portfolio/create', 'Portfolio::create');
+$routes->get('/portfolio/edit/(:segment)', 'Portfolio::edit/$1');
+$routes->delete('portfolio/(:num)', 'Portfolio::delete/$1');
+$routes->get('/portfolio/(:any)', 'Portfolio::detail/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
